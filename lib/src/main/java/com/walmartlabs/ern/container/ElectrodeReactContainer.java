@@ -29,9 +29,6 @@ import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.SafeActivityStarter;
 import com.facebook.react.modules.network.OkHttpClientProvider;
 import com.facebook.react.shell.MainReactPackage;
-import com.walmartlabs.ern.container.plugins.CodePushPlugin;
-import com.walmartlabs.ern.container.plugins.BridgePlugin;
-import com.microsoft.codepush.react.CodePush;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -108,7 +105,6 @@ public class ElectrodeReactContainer {
 
     @SuppressWarnings("UnusedReturnValue")
     public synchronized static void initialize(@NonNull Application application, @NonNull final Config reactContainerConfig
-            , @NonNull final CodePushPlugin.Config codePushPluginConfig
      ) {
         if (sElectrodeReactNativeHost == null) {
 
@@ -126,8 +122,6 @@ public class ElectrodeReactContainer {
             askForOverlayPermissionIfDebug(application);
 
             sReactPackages.add(new MainReactPackage());
-            sReactPackages.add(new CodePushPlugin().hook(application, codePushPluginConfig));
-            sReactPackages.add(new BridgePlugin().hook(application, null));
             sReactPackages.removeAll(Collections.singleton((ReactPackage)null));
 
             // Load bundle now (engine might offer lazy loading later down the road)
@@ -289,11 +283,6 @@ public class ElectrodeReactContainer {
             return reactInstanceManager;
         }
 
-        @javax.annotation.Nullable
-        @Override
-        protected String getJSBundleFile() {
-            return CodePush.getJSBundleFile();
-        }
     }
     
 }
