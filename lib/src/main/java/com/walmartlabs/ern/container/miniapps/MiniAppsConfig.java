@@ -25,8 +25,8 @@ import java.util.HashMap;
 
 public class MiniAppsConfig {
      public enum MiniApps {
-        ("", Activity.class),
-        ("", Activity.class),
+        MovieListMiniApp("MovieListMiniApp", MovieListMiniAppActivity.class),
+        MovieDetailsMiniApp("MovieDetailsMiniApp", MovieDetailsMiniAppActivity.class),
         ;
 
         private final String miniAppName;
@@ -49,7 +49,7 @@ public class MiniAppsConfig {
     }
 
     public static final HashMap<String, Class> MINIAPP_ACTIVITIES = new HashMap<String, Class>() {{
-        put(MiniApps..getName(), MiniApps..getActivityClass());
-        put(MiniApps..getName(), MiniApps..getActivityClass());
+        put(MiniApps.MovieListMiniApp.getName(), MiniApps.MovieListMiniApp.getActivityClass());
+        put(MiniApps.MovieDetailsMiniApp.getName(), MiniApps.MovieDetailsMiniApp.getActivityClass());
     }};
 }
