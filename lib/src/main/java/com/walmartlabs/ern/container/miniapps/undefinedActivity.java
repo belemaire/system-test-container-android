@@ -15,9 +15,9 @@ package com.walmartlabs.ern.container.miniapps;
 
 import com.walmartlabs.ern.container.ElectrodeMiniAppActivity;
 
-public class MovieDetailsMiniAppActivity extends ElectrodeMiniAppActivity {
+public class Activity extends ElectrodeMiniAppActivity {
   @Override
   protected String getMiniAppName() {
-    return "MovieDetailsMiniApp";
+    return "";
   }
 }
